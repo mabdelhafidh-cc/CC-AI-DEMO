@@ -5,7 +5,8 @@ const cachePath = ".github/cache/cache.json";
 const prId = process.env.PR_NUMBER;
 const cacheId = `${process.env.RUNNER_OS}-pr-cache-${process.env.PR_NUMBER}`; // Cache key to delete
 const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
-const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+const octokit = new Octokit({ auth: GITHUB_TOKEN });
 
 async function getRepositoryCache() {
   const caches = await octokit.request('GET /repos/{owner}/{repo}/actions/caches', {
@@ -25,7 +26,7 @@ async function deleteCacheByKey(cacheKey) {
       method: "DELETE",
       headers: {
         Accept: "application/vnd.github+json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${GITHUB_TOKEN}`,
         "X-GitHub-Api-Version": "2022-11-28"
       }
     });
