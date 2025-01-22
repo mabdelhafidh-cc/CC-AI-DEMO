@@ -98,8 +98,7 @@ namespace CodeTest
             //Console.WriteLine("Demo message");
         }
 
-
-        public async void PrintMessageAsync()
+        public async void PrintHelloWorld()
         {
             Console.WriteLine("Hello World");
         }
