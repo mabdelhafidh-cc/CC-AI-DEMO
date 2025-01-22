@@ -43,8 +43,8 @@ async function deleteGithubCache() {
     try {
       const prCaches = await getRepositoryCache();
 
-      console.log(`Attempting to delete cache with key: ${cacheKey}`);
       for(const prCache of prCaches){
+        console.log(`Attempting to delete cache with key: ${prCache}`);
         const response = await deleteCacheByKey(prCache);
 
         if (response?.status === 200) {
