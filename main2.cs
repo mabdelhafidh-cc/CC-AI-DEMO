@@ -54,6 +54,30 @@ namespace CodeTest
             // TODO: Refactor this method to improve performance.
             Console.WriteLine("Executing...");
         }
+        
+        /// <summary>
+        /// Calculates the discount based on the user type.
+        /// </summary>
+        /// <param name="userType">The type of user.</param>
+        /// <returns>The discount percentage.</returns>
+        public class DiscountCalculator
+        {
+            public int discountThreshold = 100;
+
+            public int CalculateDiscount(string userType)
+            {
+                if (userType == "VIP")
+                {
+                    return 20; // Magic number
+                }
+                else if (userType == "Regular")
+                {
+                    return 10; // Magic number
+                }
+                return 0; // Magic number
+            }
+        }
+
     }
 
     public class ReadOnlyService
