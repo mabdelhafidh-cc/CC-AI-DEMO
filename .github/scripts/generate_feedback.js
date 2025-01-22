@@ -280,7 +280,6 @@ async function generateFeedback() {
       change.addedLines.map((line) => line.commitId).filter(Boolean)
     );
     
-    console.log(`new commits : `, newCommits);
     cache[prId].reviewedCommits = [...new Set([...cache[prId].reviewedCommits, ...newCommits])];
     await saveCache(cache);
     await cleanupOpenAiResources(assistantId, threadId);
